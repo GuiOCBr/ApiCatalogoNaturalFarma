@@ -1,4 +1,5 @@
 ﻿using APICatalog.Context;
+using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
 
 namespace APICatalog.Repository
@@ -14,27 +15,27 @@ namespace APICatalog.Repository
 
         public IQueryable<T> Get()
         {
-            throw new NotImplementedException();
+            return _context.Set<T>().AsNoTracking();
         }
 
         public T GetById(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+           return _context.Set<T>().SingleOrDefault(predicate);
         }
 
         public void Update(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Update(entity);
         }
 
         public void Add(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Add(entity);
         }
 
         public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            _context.Set<T>().Remove(entity);
         }
 
 
