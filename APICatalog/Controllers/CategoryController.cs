@@ -11,12 +11,14 @@ namespace APICatalog.Controllers
     public class CategoryController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
-
+       
         public CategoryController(ApplicationDbContext context)
         {
             _context = context;
+            
         }
 
+        
         [HttpGet("product")] // ROTA PARA RETORNAR CATEGORIA QUE ESTEJA VINCULADA COM PRODUTOS / METODO INCLUDE FAZ ESSE RELACIONAMENTO
 
         public ActionResult<IEnumerable<Category>> GetCategoryProduct()
